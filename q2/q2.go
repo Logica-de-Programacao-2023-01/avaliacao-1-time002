@@ -11,8 +11,35 @@ package q2
 //indica o contrário.
 //
 //Ajude os amigos a encontrar o número de problemas para os quais eles escreverão uma solução.
+import fmt
 
 func ProblemsSolved(answers [][3]bool) int {
-	// Seu código aqui
+	numProblems := 0
+
+	for _, opinion := range answers {
+		numTrue := 0
+		for _, hasSolution := range opinion {
+			if hasSolution {
+				numTrue++
+			}
+		}
+		if numTrue >= 2 {
+			numProblems++
+		}
+	}
+
+	return numProblems
+}
 	return 0
+}
+
+func main() {
+	answers := [][]bool{
+		{true, true, false},
+		{true, false, false},
+		{true, true, true},
+		{false, false, true},
+	}
+	numProblems := ProblemsSolved(answers)
+	fmt.Println("Número de problemas com solução:", numProblems)
 }

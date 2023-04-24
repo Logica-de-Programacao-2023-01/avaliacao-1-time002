@@ -11,8 +11,27 @@ package q3
 //Encontre o número máximo de peças de dominó que podem ser colocadas sob essas restrições.
 //
 //Se M ou N forem iguais ou menores que 0, a função deve retornar um erro.
-
+import "fmt"
+import "errors"
 func DominoPieces(m, n int) (int, error) {
-	// Seu código aqui
+	if m <= 0 || n <= 0 {
+		return 0, errors.New("m e n devem ser maiores que zero")
+	}
+
+	totalQuadrados := m * n
+	return totalQuadrados / 2, nil
+}
+
+func main() {
+	m := 3
+	n := 4
+	maxDominos, err := DominoPieces(m, n)
+	if err != nil {
+		fmt.Println("Erro:", err)
+		return
+	}
+	fmt.Println("Número máximo de peças de dominó:", maxDominos)
+}
+
 	return 0, nil
 }
