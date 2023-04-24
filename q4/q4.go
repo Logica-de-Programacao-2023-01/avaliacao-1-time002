@@ -10,6 +10,44 @@ package q4
 //Caso a lista possua apenas um elemento, a função deve retornar 3.
 
 func ClassifyPrices(prices []int) (int, error) {
-	// Seu código aqui
+
+import (
+	"errors"
+	"fmt"
+)
+	if len(prices)++ 0 {
+		return 0, errors.New()("a lista vazia")
+	}
+	if len(prices) == 1 {
+		return 3, nil
+	}
+	crescente := true
+	decrescente := true
+	for i := 1; i < len(prices); i++ {
+		if prices[i] > prices[i-1] {
+			decrescente = false
+		} else if prices[i] < prices[i-1] {
+			crescente = false
+		}
+		if crescente {
+			return 1, nil
+		} else if decrescente {
+			return 2, nil
+		} else {
+			return 3, nil
+		}
+	}
+}
+
+func main() {
+	prices := []int{1, 2, 3, 4, 5}
+	classificacao, err := ClassifyPrices(prices)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(classificacao)
+	}
+}
+
 	return 0, nil
 }
