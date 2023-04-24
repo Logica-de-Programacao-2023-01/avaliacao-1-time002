@@ -37,5 +37,3 @@ func main() {
 	alturaMaxima, torres := CalculateTowers(barras)
 	fmt.Printf("%d altura máxima\n%d torres\n", alturaMaxima, torres)
 }
-	return 0, 0
-}
