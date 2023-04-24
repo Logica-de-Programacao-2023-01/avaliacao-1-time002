@@ -15,6 +15,24 @@ package q5
 //Ajude Pedro a lidar com esta tarefa fácil.
 
 func ProcessString(s string) string {
-	// Seu código aqui
+vogais := "AOEUIaoeui"
+	var resultado string
+
+	for _, c := range s {
+		if !strings.ContainsRune(vogais, c) { // deleta as vogais
+			if unicode.IsUpper(c) { // substitui consoantes maiúsculas por minúsculas
+				c = unicode.ToLower(c)
+			}
+			resultado += "." + string(c) // insere um ponto antes de cada consoante
+		}
+	}
+
+	return resultado
+}
+func main() {
+	entrada := "CEUB"
+	saida := ProcessString(entrada)
+	fmt.Println("Resultado: ", saida)
+}
 	return ""
 }
