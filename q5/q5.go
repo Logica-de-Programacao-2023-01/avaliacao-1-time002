@@ -14,8 +14,14 @@ package q5
 //
 //Ajude Pedro a lidar com esta tarefa fácil.
 
+import (
+	"fmt"
+	"strings"
+	"unicode"
+)
+
 func ProcessString(s string) string {
-vogais := "AOEUIaoeui"
+	vogais := "AOEUIaoeui"
 	var resultado string
 
 	for _, c := range s {
@@ -33,6 +39,4 @@ func main() {
 	entrada := "CEUB"
 	saida := ProcessString(entrada)
 	fmt.Println("Resultado: ", saida)
-}
-	return ""
 }
